@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ICECD – Empowering Entrepreneurs Globally</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ICECD: Creating an Entrepreneurial Ecosystem for economic, social, and political empowerment through world-class training and global community.">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2575fc;
+      --accent: #ffd700;
+      --dark: #2d3e50;
+      --offwhite: #f8fafc;
+      --tile-bg: #fff;
+      --shadow: 0 4px 24px rgba(37,117,252,0.10);
+      --radius: 20px;
+      --transition: 0.2s cubic-bezier(.4,2,.6,1);
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--offwhite);
+      color: var(--dark);
+      min-height: 100vh;
+    }
+    .navbar {
+      background: var(--primary);
+      color: #fff;
+      padding: 1.2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 16px rgba(37,117,252,0.09);
+      letter-spacing: 1px;
+    }
+    .navbar .logo {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .navbar nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 2.2rem;
+      font-weight: 700;
+      font-size: 1.08rem;
+      transition: color var(--transition);
+      position: relative;
+    }
+    .navbar nav a:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width .3s;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+    .navbar nav a:hover {
+      color: var(--accent);
+    }
+    .navbar nav a:hover:after {
+      width: 100%;
+    }
+    .hero {
+      background: var(--offwhite);
+      color: var(--primary);
+      padding: 5rem 2rem 3.5rem 2rem;
+      text-align: center;
+      position: relative;
+      border-bottom: 2px solid var(--primary);
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      margin-bottom: 1.1rem;
+      letter-spacing: 2px;
+      color: var(--primary);
+      text-shadow: 0 3px 18px #e0eafc;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 2.2rem auto;
+      line-height: 1.7;
+      font-weight: 500;
+      color: #2d3e50;
+    }
+    .hero .cta-btn {
+      background: var(--primary);
+      color: #fff;
+      font-weight: 800;
+      padding: 1.1rem 2.4rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.15rem;
+      cursor: pointer;
+      box-shadow: 0 2px 16px rgba(45,62,80,0.10);
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+      margin-top: 2rem;
+      letter-spacing: 1px;
+    }
+    .hero .cta-btn:hover {
+      background: #fff;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .stats-section {
+      display: flex;
+      justify-content: center;
+      gap: 2.8rem;
+      margin: -2.5rem auto 3.5rem auto;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      position: relative;
+      z-index: 2;
+    }
+    .stat-tile {
+      background: var(--tile-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.2rem 2.8rem;
+      min-width: 220px;
+      text-align: center;
+      margin: 1rem 0;
+      transition: transform var(--transition), box-shadow var(--transition);
+      border: 1.5px solid #e0eafc;
+    }
+    .stat-tile:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 8px 32px rgba(37,117,252,0.18);
+      border-color: var(--primary);
+    }
+    .stat-tile h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin: 0 0 0.3rem 0;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+    .stat-tile p {
+      margin: 0;
+      font-size: 1.07rem;
+      color: #555;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .mission-section {
+      max-width: 950px;
+      margin: 3.8rem auto 2.5rem auto;
+      background: var(--tile-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem 2.5rem 2rem 2.5rem;
+      border-left: 8px solid var(--primary);
+    }
+    .mission-section h2 {
+      color: var(--primary);
+      font-size: 1.7rem;
+      font-weight: 900;
+      margin-top: 0;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+    .mission-section p {
+      font-size: 1.14rem;
+      color: #222;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+    }
+    .mission-section ul {
+      margin: 1.2rem 0 0 1.5rem;
+      font-size: 1.08rem;
+      color: #333;
+      line-height: 1.8;
+      font-weight: 500;
+      padding-left: 1.2rem;
+    }
+    .mission-section ul li {
+      margin-bottom: 0.7rem;
+      position: relative;
+      padding-left: 1.2em;
+    }
+    .mission-section ul li:before {
+      content: "✔";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+    .impact-section {
+      background: var(--offwhite);
+      color: var(--primary);
+      padding: 3.2rem 1.5rem 2.5rem 1.5rem;
+      text-align: center;
+      margin-bottom: 2.8rem;
+      border-top: 2px solid var(--primary);
+      border-bottom: 2px solid var(--primary);
+    }
+    .impact-section h2 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin-bottom: 1.7rem;
+      letter-spacing: 1px;
+      color: var(--primary);
+    }
+    .impact-section .impact-list {
+      display: flex;
+      justify-content: center;
+      gap: 2.8rem;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .impact-item {
+      background: var(--tile-bg);
+      border-radius: 14px;
+      padding: 1.4rem 1.8rem;
+      min-width: 220px;
+      margin: 0.7rem 0;
+      box-shadow: 0 2px 10px rgba(45,62,80,0.10);
+      border: 1.5px solid #e0eafc;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .impact-item:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 4px 18px rgba(37,117,252,0.13);
+      border-color: var(--primary);
+    }
+    .impact-item h3 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin: 0 0 0.4rem 0;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .impact-item p {
+      margin: 0;
+      font-size: 1.04rem;
+      color: #2d3e50;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+    .footer {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem 1.3rem 1rem;
+      font-size: 1.07rem;
+      letter-spacing: 1px;
+      border-top: 2px solid #e0eafc;
+      margin-top: 2.8rem;
+    }
+    @media (max-width: 900px) {
+      .stats-section, .impact-section .impact-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+      }
+      .mission-section {
+        padding: 1.2rem 1rem;
+      }
+      .stat-tile, .impact-item {
+        min-width: 170px;
+        padding: 1.2rem 1.2rem;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 1rem;
+      }
+      .navbar nav {
+        margin-top: 0.8rem;
+      }
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">ICECD</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Programs</a>
+      <a href="#">Impact</a>
+      <a href="#">Join Us</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Empowering Entrepreneurs, Transforming Lives</h1>
+    <p>
+      The International Centre for Entrepreneurship and Career Development (ICECD) is dedicated to creating an <strong>entrepreneurial ecosystem</strong> that empowers individuals—especially the needy—by increasing access to resources, upskilling, and fostering economic, social, and political growth. With a focus on gender equity and sustainable development, ICECD has inspired and impacted millions worldwide.
+    </p>
+    <!-- Add this to your main HTML file, replacing the current "Join the Movement" button's onclick handler -->
+<button class="cta-btn" onclick="window.location.href='join.html'">Join the Movement</button>
+
+  </section>
+
+  <section class="stats-section">
+    <div class="stat-tile">
+      <h2>38+</h2>
+      <p>Years of Experience</p>
+    </div>
+    <div class="stat-tile">
+      <h2>55</h2>
+      <p>Countries Reached</p>
+    </div>
+    <div class="stat-tile">
+      <h2>10M+</h2>
+      <p>Lives Impacted</p>
+    </div>
+  </section>
+
+  <section class="mission-section">
+    <h2>Our Mission</h2>
+    <p>
+      To create an “Entrepreneurial Ecosystem” by increasing access and control over productive resources, facilitating economic, social, and political empowerment through human resource development, and upskilling beneficiaries in vital life and career skills—with gender issues as a key focus.
+    </p>
+    <ul>
+      <li>Human resource development through targeted training and upskilling.</li>
+      <li>Continuous follow-up and tracking of beneficiaries’ progress post-training.</li>
+      <li>Building a global community for shared learning and collaboration.</li>
+      <li>Facilitating access to study materials and entrepreneurship resources for the needy.</li>
+      <li>Promoting gender equity at every stage of the entrepreneurial journey.</li>
+    </ul>
+  </section>
+
+  <section class="impact-section">
+    <h2>Our Global Impact</h2>
+    <div class="impact-list">
+      <div class="impact-item">
+        <h3>Community-Based Communication</h3>
+        <p>Active in 55 countries, ICECD connects slum, rural, and urban populations through digital and local initiatives.</p>
+      </div>
+      <div class="impact-item">
+        <h3>Follow-Up for Lasting Success</h3>
+        <p>Tracking and supporting entrepreneurs after training ensures sustainable business growth and resilience.</p>
+      </div>
+      <div class="impact-item">
+        <h3>Inclusive Stakeholder Universe</h3>
+        <p>Engaging nonprofit teams, trainees, and graduates to foster a supportive, collaborative ecosystem.</p>
+      </div>
+      <div class="impact-item">
+        <h3>Measuring Success</h3>
+        <p>ICECD evaluates impact through outreach, stories, testimonies, and organizational profit—driving continuous improvement.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 ICECD &mdash; International Centre for Entrepreneurship and Career Development. All rights reserved.
+  </footer>
+</body>
+</html>

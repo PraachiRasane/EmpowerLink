@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Entrepreneur Chat Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Entrepreneur Chat</div>
+    <ul class="nav-links">
+      <li><a href="#">Chats</a></li>
+      <li><a href="../explore-communities/explore-communities.html">Communities</a></li>
+      <li><a href="../dashboard/dashbard.html">Dashboard</a></li>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Logout</a></li>
+      <li class="language-selector">
+        <button class="language-btn" onclick="toggleLanguageMenu()">
+          <span>🌐 Language</span>
+          <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="language-menu" id="language-menu">
+          <a href="#" onclick="changeLanguage('en')">🇺🇸 English</a>
+          <a href="#" onclick="changeLanguage('hi')">🇮🇳 हिंदी</a>
+          <a href="#" onclick="changeLanguage('mr')">🇮🇳 मराठी</a>
+          <a href="#" onclick="changeLanguage('ta')">🇮🇳 தமிழ்</a>
+          <a href="#" onclick="changeLanguage('te')">🇮🇳 తెలుగు</a>
+          <a href="#" onclick="changeLanguage('kn')">🇮🇳 ಕನ್ನಡ</a>
+          <a href="#" onclick="changeLanguage('gu')">🇮🇳 ગુજરાતી</a>
+          <a href="#" onclick="changeLanguage('bn')">🇮🇳 বাংলা</a>
+          <a href="#" onclick="changeLanguage('ur')">🇵🇰 اردو</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="main-container">
+    <!-- Sidebar: Contacts & Communities -->
+    <aside class="sidebar">
+      <h2>Direct Messages</h2>
+      <ul id="contacts-list">
+        <!-- JS populates contacts -->
+      </ul>
+      <h2>Communities</h2>
+      <ul id="communities-list">
+        <!-- JS populates communities -->
+      </ul>
+      
+    </aside>
+
+    <!-- Chat Window -->
+    <section class="chat-section">
+      <div id="chat-header" class="chat-header">
+        <!-- JS populates current chat/room name -->
+      </div>
+      <div id="chat-messages" class="chat-messages">
+        <!-- JS populates messages -->
+      </div>
+      <form id="message-form" class="message-form">
+        <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off" required>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Hidden Google Translate Element -->
+  <div id="google_translate_element" style="display: none;"></div>
+
+  <script src="chat.js"></script>
+</body>
+</html>

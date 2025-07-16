@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Explore Communities - EmpowerLINK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="explore-communities.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">EmpowerLINK Communities</div>
+    <ul class="nav-links">
+      <li><a href="../chat/chat.html">Chats</a></li>
+      <li><a href="explore-communities.html">Communities</a></li>
+      <li><a href="../dashboard/dashbard.html">Dashboard</a></li>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Logout</a></li>
+      <li class="language-selector">
+        <button class="language-btn" onclick="toggleLanguageMenu()">
+          <span>🌐 Language</span>
+          <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="language-menu" id="languageMenu">
+          <a href="#" onclick="changeLanguage('en')">🇺🇸 English</a>
+          <a href="#" onclick="changeLanguage('hi')">🇮🇳 हिंदी</a>
+          <a href="#" onclick="changeLanguage('mr')">🇮🇳 मराठी</a>
+          <a href="#" onclick="changeLanguage('ta')">🇮🇳 தமிழ்</a>
+          <a href="#" onclick="changeLanguage('te')">🇮🇳 తెలుగు</a>
+          <a href="#" onclick="changeLanguage('kn')">🇮🇳 ಕನ್ನಡ</a>
+          <a href="#" onclick="changeLanguage('gu')">🇮🇳 ગુજરાતી</a>
+          <a href="#" onclick="changeLanguage('bn')">🇮🇳 বাংলা</a>
+          <a href="#" onclick="changeLanguage('ur')">🇵🇰 اردو</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="main-container">
+    <h1 class="page-title">Discover Communities</h1>
+    <p class="page-description">Join communities of like-minded entrepreneurs and grow your network!</p>
+    
+    <form id="add-community-form" style="margin-bottom:2rem;max-width:500px;background:#f8f9fa;padding:1.5rem 2rem;border-radius:14px;box-shadow:0 2px 10px rgba(37,117,252,0.07);">
+      <h2 style="margin-top:0;color:#2575fc;">Add a New Community</h2>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <input type="text" id="community-name" placeholder="Community Name" required style="padding:0.7rem 1rem;border-radius:6px;border:1px solid #b5c9fa;font-size:1rem;">
+        <textarea id="community-description" placeholder="Description" required style="padding:0.7rem 1rem;border-radius:6px;border:1px solid #b5c9fa;font-size:1rem;min-height:60px;"></textarea>
+        <input type="text" id="community-tags" placeholder="Tags (comma separated)" style="padding:0.7rem 1rem;border-radius:6px;border:1px solid #b5c9fa;font-size:1rem;">
+        <button type="submit" style="background:linear-gradient(90deg,#6a11cb 0%,#2575fc 100%);color:#fff;font-weight:700;border:none;border-radius:8px;font-size:1.1rem;padding:0.8rem 2.2rem;cursor:pointer;box-shadow:0 2px 8px rgba(37,117,252,0.11);letter-spacing:1px;">Add Community</button>
+      </div>
+    </form>
+    <div class="communities-grid" id="communities-grid">
+      <!-- JavaScript will populate available communities -->
+    </div>
+  </div>
+
+  <!-- Hidden Google Translate Element -->
+  <div id="google_translate_element" style="display: none;"></div>
+
+  <script src="explore-communities.js"></script>
+  <script>
+    // Reset joined communities for demo
+    localStorage.removeItem('joinedCommunities');
+  </script>
+  <script>
+    document.getElementById('add-community-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('community-name').value.trim();
+      const description = document.getElementById('community-description').value.trim();
+      const tags = document.getElementById('community-tags').value.split(',').map(t => t.trim()).filter(Boolean);
+      if (!name || !description) return;
+      const newCommunity = {
+        id: name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + Date.now(),
+        name,
+        description,
+        memberCount: 1,
+        tags,
+        icon: name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0,2)
+      };
+      // Save to localStorage for persistence
+      let userCommunities = JSON.parse(localStorage.getItem('userCommunities') || '[]');
+      userCommunities.push(newCommunity);
+      localStorage.setItem('userCommunities', JSON.stringify(userCommunities));
+      // Add to availableCommunities in JS (if loaded)
+      if (window.availableCommunities) {
+        window.availableCommunities.push(newCommunity);
+      }
+      // Clear form
+      document.getElementById('add-community-form').reset();
+      // Re-render
+      if (window.renderCommunities) renderCommunities();
+    });
+    // On page load, merge userCommunities into availableCommunities
+    window.addEventListener('DOMContentLoaded', function() {
+      let userCommunities = JSON.parse(localStorage.getItem('userCommunities') || '[]');
+      if (window.availableCommunities && userCommunities.length) {
+        userCommunities.forEach(c => {
+          if (!window.availableCommunities.find(ac => ac.id === c.id)) {
+            window.availableCommunities.push(c);
+          }
+        });
+        if (window.renderCommunities) renderCommunities();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Stories - EmpowerLINK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="dashboard.css">
+  <style>
+    .user-stories-section { background: #f5f7fa; max-width: 1200px; margin: 2.5rem auto; border-radius: 22px; box-shadow: 0 4px 18px rgba(37,117,252,0.08); padding: 2.5rem 2rem; }
+    .user-stories-section h1 { text-align: center; color: #2d3e50; font-size: 2rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: 1.2px; text-shadow: 0 2px 12px #b5c9fa; }
+    .stories-gallery { display: flex; flex-wrap: wrap; gap: 2.2rem; justify-content: center; }
+    .story-tile, .video-item { background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(37,117,252,0.10); padding: 1.2rem 1.2rem 1rem 1.2rem; max-width: 340px; display: flex; flex-direction: column; align-items: center; transition: transform 0.2s, box-shadow 0.2s; }
+    .story-tile:hover, .video-item:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 8px 24px rgba(101,41,255,0.18), 0 1.5px 8px rgba(37,117,252,0.13); }
+    .story-tile .story-title { font-weight: bold; color: #2575fc; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .story-tile .story-text { color: #2d3e50; font-size: 1rem; text-align: center; }
+    .video-item video { width: 100%; border-radius: 12px; margin-bottom: 0.8rem; background: #000; box-shadow: 0 2px 8px rgba(37,117,252,0.08); }
+    .video-caption { text-align: center; color: #2d3e50; font-size: 1.08rem; font-weight: 600; margin-top: 0.2rem; letter-spacing: 0.2px; }
+    @media (max-width: 900px) { .stories-gallery { flex-direction: column; gap: 1.5rem; align-items: center; } .user-stories-section { padding: 1.2rem 0.4rem; max-width: 99%; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">EmpowerLINK Dashboard</div>
+    <ul class="nav-links">
+      <li><a href="dashbard.html">Home</a></li>
+      <li><a href="../courses/courses.html">Your Courses</a></li>
+      <li><a href="#">Community</a></li>
+      <li><a href="#">Logout</a></li>
+      <li><a href="user-stories.html">User Stories</a></li>
+      <li class="language-selector">
+        <button class="language-btn" onclick="toggleLanguageMenu()">
+          <span>🌐 Language</span>
+          <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="language-menu" id="languageMenu">
+          <a href="#" onclick="changeLanguage('en')">🇺🇸 English</a>
+          <a href="#" onclick="changeLanguage('hi')">🇮🇳 हिंदी</a>
+          <a href="#" onclick="changeLanguage('mr')">🇮🇳 मराठी</a>
+          <a href="#" onclick="changeLanguage('ta')">🇮🇳 தமிழ்</a>
+          <a href="#" onclick="changeLanguage('te')">🇮🇳 తెలుగు</a>
+          <a href="#" onclick="changeLanguage('kn')">🇮🇳 ಕನ್ನಡ</a>
+          <a href="#" onclick="changeLanguage('gu')">🇮🇳 ગુજરાતી</a>
+          <a href="#" onclick="changeLanguage('bn')">🇮🇳 বাংলা</a>
+          <a href="#" onclick="changeLanguage('ur')">🇵🇰 اردو</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <section class="user-stories-section">
+    <h1>User Stories</h1>
+    <!-- Video Gallery on Top -->
+    <div class="stories-gallery" style="margin-bottom:2.5rem;">
+      <div class="video-item">
+        <video controls poster="thumb1.jpg" width="320">
+          <source src="story1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-caption">Empowering Women in Rural Gujarat</div>
+      </div>
+      <div class="video-item">
+        <video controls poster="thumb2.jpg" width="320">
+          <source src="story2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-caption">A Farmer's Success Story</div>
+      </div>
+      <div class="video-item">
+        <video controls poster="thumb3.jpg" width="320">
+          <source src="story3.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-caption">Sunita's Journey: From Idea to Impact</div>
+      </div>
+    </div>
+    <!-- Text Tiles Below -->
+    <div class="stories-gallery" style="flex-wrap:wrap;">
+      <div class="story-tile">
+        <div class="story-title">Sunita's Journey</div>
+        <div class="story-text">I started my business with a small idea and support from ICECD. Today, I employ 5 women in my village and have expanded to 3 nearby towns!</div>
+      </div>
+      <div class="story-tile">
+        <div class="story-title">Ramesh's Dairy Success</div>
+        <div class="story-text">With the help of government schemes, I was able to buy new equipment and double my milk production. My profits have grown steadily.</div>
+      </div>
+      <div class="story-tile">
+        <div class="story-title">Asha's Boutique</div>
+        <div class="story-text">ICECD's training gave me the confidence to open my own boutique. Now, I design clothes for customers across the city!</div>
+      </div>
+    </div>
+  </section>
+  <script src="dashboard.js"></script>
+</body>
+</html>

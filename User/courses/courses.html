@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Courses - EmpowerLINK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="courses.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">EmpowerLINK Courses</div>
+    <ul class="nav-links">
+      <li><a href="../dashboard/dashbard.html">Dashboard</a></li>
+      <li><a href="../chat/chat.html">Chats</a></li>
+      <li><a href="../explore-communities/explore-communities.html">Communities</a></li>
+      <li><a href="courses.html">Your Courses</a></li>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Logout</a></li>
+      <li class="language-selector">
+        <button class="lang-btn" onclick="toggleLanguageMenu()">
+          <span class="lang-icon">🌐</span>
+          <span class="lang-text">Language</span>
+          <span class="lang-arrow">▼</span>
+        </button>
+        <div class="lang-menu" id="language-menu">
+          <div class="lang-option" onclick="changeLanguage('en')">🇺🇸 English</div>
+          <div class="lang-option" onclick="changeLanguage('hi')">🇮🇳 हिन्दी</div>
+          <div class="lang-option" onclick="changeLanguage('mr')">🇮🇳 मराठी</div>
+          <div class="lang-option" onclick="changeLanguage('ta')">🇮🇳 தமிழ்</div>
+          <div class="lang-option" onclick="changeLanguage('te')">🇮🇳 తెలుగు</div>
+          <div class="lang-option" onclick="changeLanguage('kn')">🇮🇳 ಕನ್ನಡ</div>
+          <div class="lang-option" onclick="changeLanguage('gu')">🇮🇳 ગુજરાતી</div>
+          <div class="lang-option" onclick="changeLanguage('bn')">🇮🇳 বাংলা</div>
+          <div class="lang-option" onclick="changeLanguage('ur')">🇵🇰 اردو</div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="main-container">
+    <!-- Current Course Progress Section -->
+    <section class="course-progress-section">
+      <h1 class="section-title">Your Current Course Progress</h1>
+      <div class="current-course-card">
+        <div class="course-header">
+          <div class="course-info">
+            <h2>Entrepreneurship Fundamentals</h2>
+            <p class="course-subtitle">Initial Training Course (4 weeks) • Started: June 15, 2025</p>
+          </div>
+          <div class="progress-percentage">
+            <span id="progress-percent">85%</span>
+            <small>Complete</small>
+          </div>
+        </div>
+        
+        <div class="progress-bar-container">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="modules-grid">
+          <div class="module completed">
+            <div class="module-icon">✓</div>
+            <div class="module-content">
+              <h4>Week 1: Business Ideation & Market Research</h4>
+              <p>Completed on June 22, 2025</p>
+            </div>
+          </div>
+          
+          <div class="module completed">
+            <div class="module-icon">✓</div>
+            <div class="module-content">
+              <h4>Week 2: Business Planning & Strategy</h4>
+              <p>Completed on June 29, 2025</p>
+            </div>
+          </div>
+          
+          <div class="module completed">
+            <div class="module-icon">✓</div>
+            <div class="module-content">
+              <h4>Week 3: Financial Management & Legal Basics</h4>
+              <p>Completed on July 6, 2025</p>
+            </div>
+          </div>
+          
+          <div class="module current">
+            <div class="module-icon">▶</div>
+            <div class="module-content">
+              <h4>Week 4: Marketing & Launch Preparation</h4>
+              <p>In Progress • 5 of 7 lessons completed</p>
+              <button class="continue-btn">Continue Learning</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mock Interview Section -->
+        <div class="mock-interview-section">
+          <h3>🎯 Mock Pitch & Interview Practice</h3>
+          <p>Practice your entrepreneurial skills with our AI-powered interview system. Available after completing Week 2.</p>
+          
+          <div class="interview-options">
+            <div class="interview-card available" data-type="pitch">
+              <div class="interview-icon">🚀</div>
+              <h4>Business Pitch Practice</h4>
+              <p>Practice presenting your business idea to potential investors. Get feedback on your pitch structure, delivery, and content.</p>
+              <span class="interview-duration">⏱️ 15-20 minutes</span>
+              <button class="start-interview-btn" onclick="startMockInterview('pitch')">Start Pitch Practice</button>
+            </div>
+            
+            <div class="interview-card available" data-type="investor">
+              <div class="interview-icon">💼</div>
+              <h4>Investor Interview Simulation</h4>
+              <p>Experience a realistic investor Q&A session. Practice answering tough questions about your business model and financials.</p>
+              <span class="interview-duration">⏱️ 20-25 minutes</span>
+              <button class="start-interview-btn" onclick="startMockInterview('investor')">Start Interview</button>
+            </div>
+            
+            <div class="interview-card available" data-type="feedback">
+              <div class="interview-icon">📊</div>
+              <h4>Performance Review</h4>
+              <p>Get detailed feedback on your previous interview attempts and track your improvement over time.</p>
+              <span class="interview-duration">⏱️ View anytime</span>
+              <button class="start-interview-btn" onclick="viewPerformanceReview()">View Reports</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Refreshment Course Timeline Section -->
+    <section class="refreshment-section">
+      <h1 class="section-title">3-Year Refreshment Course Timeline</h1>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <h3>Continuous Learning & Skill Enhancement Program</h3>
+          <p>Mandatory refreshment courses to maintain certification and stay updated with industry trends</p>
+        </div>
+        
+        <div class="timeline">
+          <div class="timeline-item completed">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h4>Year 1: Advanced Business Strategies</h4>
+              <p>July 15 - August 15, 2025 (4 weeks)</p>
+              <span class="status upcoming">📅 Registration Open</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item upcoming">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h4>Year 1.5: Mid-term Skills Assessment</h4>
+              <p>January 15 - February 15, 2026 (4 weeks)</p>
+              <span class="status upcoming">⏰ Scheduled</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item upcoming">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h4>Year 2: Digital Transformation & Innovation</h4>
+              <p>July 15 - August 15, 2026 (4 weeks)</p>
+              <span class="status upcoming">� Planning Phase</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item upcoming">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h4>Year 2.5: Leadership & Scale Management</h4>
+              <p>January 15 - February 15, 2027 (4 weeks)</p>
+              <span class="status upcoming">📋 Planning Phase</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item upcoming">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h4>Year 3: Final Certification & Advanced Portfolio</h4>
+              <p>July 15 - August 15, 2027 (4 weeks)</p>
+              <span class="status upcoming">🎯 Target Completion</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="timeline-summary">
+          <h4>Program Summary</h4>
+          <div class="summary-grid">
+            <div class="summary-item">
+              <strong>Total Duration:</strong> 3 Years
+            </div>
+            <div class="summary-item">
+              <strong>Refreshment Courses:</strong> 5 Courses (4 weeks each)
+            </div>
+            <div class="summary-item">
+              <strong>Certification Validity:</strong> 3 Years
+            </div>
+            <div class="summary-item">
+              <strong>Next Renewal:</strong> August 2027
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Available Courses Section -->
+    <section class="available-courses-section">
+      <h1 class="section-title">Upcoming Courses Available</h1>
+      
+      <!-- Course Mode Selection -->
+      <div class="course-mode-selector">
+        <div class="mode-buttons">
+          <button class="mode-btn active" data-mode="online" onclick="selectCourseMode('online')">
+            💻 Online Courses
+          </button>
+          <button class="mode-btn" data-mode="offline" onclick="selectCourseMode('offline')">
+            🏢 Offline Courses
+          </button>
+        </div>
+      </div>
+
+      <!-- Location Selector (for offline courses) -->
+      <div id="location-selector" class="location-selector" style="display: none;">
+        <div class="location-header">
+          <h3>📍 Select Your Preferred Location</h3>
+          <p>Choose the training center nearest to you</p>
+        </div>
+        <div class="location-grid">
+          <div class="location-card" data-location="mumbai" onclick="selectLocation('mumbai')">
+            <div class="location-icon">🏙️</div>
+            <h4>Mumbai Center</h4>
+            <p>Andheri East, Mumbai</p>
+            <span class="distance">📍 2.5 km away</span>
+          </div>
+          <div class="location-card" data-location="delhi" onclick="selectLocation('delhi')">
+            <div class="location-icon">🏛️</div>
+            <h4>Delhi Center</h4>
+            <p>Connaught Place, New Delhi</p>
+            <span class="distance">📍 15.2 km away</span>
+          </div>
+          <div class="location-card" data-location="bangalore" onclick="selectLocation('bangalore')">
+            <div class="location-icon">🌆</div>
+            <h4>Bangalore Center</h4>
+            <p>Koramangala, Bangalore</p>
+            <span class="distance">📍 8.7 km away</span>
+          </div>
+          <div class="location-card" data-location="pune" onclick="selectLocation('pune')">
+            <div class="location-icon">🏢</div>
+            <h4>Pune Center</h4>
+            <p>Hinjewadi, Pune</p>
+            <span class="distance">📍 12.1 km away</span>
+          </div>
+          <div class="location-card" data-location="hyderabad" onclick="selectLocation('hyderabad')">
+            <div class="location-icon">🌃</div>
+            <h4>Hyderabad Center</h4>
+            <p>HITEC City, Hyderabad</p>
+            <span class="distance">📍 18.9 km away</span>
+          </div>
+          <div class="location-card" data-location="chennai" onclick="selectLocation('chennai')">
+            <div class="location-icon">🏘️</div>
+            <h4>Chennai Center</h4>
+            <p>OMR, Chennai</p>
+            <span class="distance">📍 22.3 km away</span>
+          </div>
+        </div>
+        <div class="selected-location-info" id="selected-location-info" style="display: none;">
+          <h4>📍 Selected Location: <span id="selected-location-name">Mumbai Center</span></h4>
+          <p id="selected-location-details">Andheri East, Mumbai • 2.5 km away</p>
+        </div>
+      </div>
+      
+      <div class="course-filters">
+        <button class="filter-btn active" data-filter="all">All Courses</button>
+        <button class="filter-btn" data-filter="free">Free Courses</button>
+        <button class="filter-btn" data-filter="paid">Premium Courses</button>
+        <button class="filter-btn" data-filter="upcoming">Starting Soon</button>
+      </div>
+
+      <div class="courses-grid" id="courses-grid">
+        <!-- JavaScript will populate courses -->
+      </div>
+    </section>
+  </div>
+
+  <!-- AI Interview Modal -->
+  <div id="interview-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="interview-title">AI Mock Interview</h2>
+        <span class="close" onclick="closeInterviewModal()">&times;</span>
+      </div>
+      
+      <div class="interview-interface">
+        <!-- Pre-interview Setup -->
+        <div id="interview-setup" class="interview-screen active">
+          <div class="setup-content">
+            <h3>📋 Interview Preparation</h3>
+            <p>Before we begin, please provide some information about your business:</p>
+            
+            <form id="business-info-form">
+              <div class="form-group">
+                <label>Business Name:</label>
+                <input type="text" id="business-name" placeholder="Enter your business name" required>
+              </div>
+              
+              <div class="form-group">
+                <label>Industry/Sector:</label>
+                <select id="business-industry" required>
+                  <option value="">Select Industry</option>
+                  <option value="technology">Technology</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="education">Education</option>
+                  <option value="finance">Finance</option>
+                  <option value="retail">Retail/E-commerce</option>
+                  <option value="agriculture">Agriculture</option>
+                  <option value="manufacturing">Manufacturing</option>
+                  <option value="services">Services</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label>Business Stage:</label>
+                <select id="business-stage" required>
+                  <option value="">Select Stage</option>
+                  <option value="idea">Idea Stage</option>
+                  <option value="prototype">Prototype/MVP</option>
+                  <option value="early">Early Revenue</option>
+                  <option value="growth">Growth Stage</option>
+                  <option value="established">Established</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label>Brief Description (50 words max):</label>
+                <textarea id="business-description" maxlength="250" placeholder="Briefly describe your business..."></textarea>
+                <small>This helps the AI tailor questions to your specific business.</small>
+              </div>
+              
+              <button type="button" class="setup-btn" onclick="startInterview()">Start Interview 🚀</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Interview Screen -->
+        <div id="interview-screen" class="interview-screen">
+          <div class="interview-progress">
+            <div class="progress-info">
+              <span>Question <span id="current-question">1</span> of <span id="total-questions">8</span></span>
+              <div class="time-remaining">⏱️ <span id="time-remaining">05:00</span></div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="interview-progress"></div>
+            </div>
+          </div>
+          
+          <div class="ai-interviewer">
+            <div class="ai-avatar">🤖</div>
+            <div class="ai-speech-bubble">
+              <p id="ai-question">Loading your personalized interview questions...</p>
+            </div>
+          </div>
+          
+          <div class="interview-controls">
+            <div class="recording-status">
+              <div class="recording-indicator" id="recording-indicator">🔴 Recording</div>
+            </div>
+            
+            <div class="response-area">
+              <textarea id="user-response" placeholder="Type your response here or use voice recording..." rows="6"></textarea>
+              <div class="response-controls">
+                <button class="voice-btn" id="voice-btn" onclick="toggleVoiceRecording()">🎤 Start Voice</button>
+                <button class="submit-response-btn" onclick="submitResponse()">Submit Response</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="interview-screen">
+          <div class="results-content">
+            <h3>📊 Interview Complete!</h3>
+            <div class="overall-score">
+              <div class="score-circle">
+                <span id="overall-score">85</span>
+                <small>Overall Score</small>
+              </div>
+            </div>
+            
+            <div class="detailed-feedback">
+              <div class="feedback-category">
+                <h4>💬 Communication Skills</h4>
+                <div class="score-bar">
+                  <div class="score-fill" style="width: 78%"></div>
+                  <span>78/100</span>
+                </div>
+                <p>Good articulation and clarity. Work on reducing filler words.</p>
+              </div>
+              
+              <div class="feedback-category">
+                <h4>📈 Business Knowledge</h4>
+                <div class="score-bar">
+                  <div class="score-fill" style="width: 92%"></div>
+                  <span>92/100</span>
+                </div>
+                <p>Excellent understanding of your market and business model.</p>
+              </div>
+              
+              <div class="feedback-category">
+                <h4>💰 Financial Awareness</h4>
+                <div class="score-bar">
+                  <div class="score-fill" style="width: 85%"></div>
+                  <span>85/100</span>
+                </div>
+                <p>Good grasp of financials. Consider more detailed projections.</p>
+              </div>
+              
+              <div class="feedback-category">
+                <h4>🎯 Pitch Delivery</h4>
+                <div class="score-bar">
+                  <div class="score-fill" style="width: 80%"></div>
+                  <span>80/100</span>
+                </div>
+                <p>Engaging presentation style. Work on storytelling elements.</p>
+              </div>
+            </div>
+            
+            <div class="action-buttons">
+              <button class="retry-btn" onclick="retryInterview()">Try Again</button>
+              <button class="save-results-btn" onclick="saveResults()">Save Results</button>
+              <button class="close-btn" onclick="closeInterviewModal()">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden Google Translate Element -->
+  <div id="google_translate_element" style="display: none;"></div>
+
+  <script src="courses.js"></script>
+</body>
+</html>

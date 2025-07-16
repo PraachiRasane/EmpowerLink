@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EmpowerLINK User Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">EmpowerLINK Dashboard</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="user-stories.html">User Stories</a></li>
+      <li><a href="../courses/courses.html">Your Courses</a></li>
+      <li><a href="#">Community</a></li>
+      <!-- Removed Profile -->
+      <li><a href="#">Logout</a></li>
+      <li class="language-selector">
+        <button class="language-btn" onclick="toggleLanguageMenu()">
+          <span>🌐 Language</span>
+          <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="language-menu" id="languageMenu">
+          <a href="#" onclick="changeLanguage('en')">🇺🇸 English</a>
+          <a href="#" onclick="changeLanguage('hi')">🇮🇳 हिंदी</a>
+          <a href="#" onclick="changeLanguage('mr')">🇮🇳 मराठी</a>
+          <a href="#" onclick="changeLanguage('ta')">🇮🇳 தமிழ்</a>
+          <a href="#" onclick="changeLanguage('te')">🇮🇳 తెలుగు</a>
+          <a href="#" onclick="changeLanguage('kn')">🇮🇳 ಕನ್ನಡ</a>
+          <a href="#" onclick="changeLanguage('gu')">🇮🇳 ગુજરાતી</a>
+          <a href="#" onclick="changeLanguage('bn')">🇮🇳 বাংলা</a>
+          <a href="#" onclick="changeLanguage('ur')">🇵🇰 اردو</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Chats Button -->
+  <div class="chats-container">
+    <a href="../chat/chat.html" class="chats-btn">Chats</a>
+  </div>
+
+  <!-- Image Carousel -->
+  <div class="carousel-container">
+    <div class="carousel">
+      <div style="width:100vw;height:380px;display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:8vw;font-weight:900;color:#2575fc;text-shadow:2px 2px 24px #000,0 0 8px #fff;letter-spacing:0.1em;font-family:'Segoe UI',Arial,sans-serif;">ICECD</span>
+      </div>
+    </div>
+    <button class="carousel-btn prev">&#10094;</button>
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+
+  <!-- Entrepreneurial Hub Tile -->
+<div class="entrepreneurial-hub-tile">
+  <h1 class="hub-title">Entrepreneurial Hub</h1>
+  <div class="announcement-hub">
+    <div class="announcement-section">
+      <h2>Government Schemes</h2>
+      <ul class="announcement-list" id="govt-schemes">
+        <!-- JS will populate -->
+      </ul>
+    </div>
+    <div class="announcement-section">
+      <h2>Collaboration Opportunities</h2>
+      <ul class="announcement-list" id="collab-opps">
+        <!-- JS will populate -->
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- See Your Progress Tile -->
+<div class="progress-hub-tile">
+  <h1 class="progress-title">See Your Progress</h1>
+  <div class="progress-content">
+    <form id="progress-form">
+      <div class="progress-fields">
+        <label>
+          Investment Amount (₹):
+          <input type="number" name="investment" min="0" required>
+        </label>
+        <label>
+          Breakeven Amount (₹):
+          <input type="number" name="breakeven" min="0" required>
+        </label>
+        <label>
+          Profit Gained (₹):
+          <input type="number" name="profit" min="0" required>
+        </label>
+        <label>
+          Customer Engagement:
+          <select name="customers" required>
+            <option value="">Select</option>
+            <option value="100+">100+</option>
+            <option value="200+">200+</option>
+            <option value="300+">300+</option>
+            <option value="400+">400+</option>
+            <option value="500+">500+</option>
+            <option value="1000+">1000+</option>
+          </select>
+        </label>
+        <label>
+          Scale of Business:
+          <select name="scale" required>
+            <option value="">Select</option>
+            <option value="Only Founder">Only Founder</option>
+            <option value="Group of 2">Group of 2</option>
+            <option value="Group of 3">Group of 3</option>
+            <option value="Group of 5">Group of 5</option>
+            <option value="Group of 10">Group of 10</option>
+            <option value="Group of 20">Group of 20</option>
+            <option value="Group of 50">Group of 50</option>
+            <option value="Group of 100">Group of 100</option>
+          </select>
+        </label>
+      </div>
+      <button type="submit" class="progress-btn">Generate Report</button>
+    </form>
+    <div id="progress-report" class="progress-report"></div>
+    <canvas id="progress-chart"></canvas>
+  </div>  </div>
+
+  <!-- Hidden Google Translate Element -->
+  <div id="google_translate_element" style="display: none;"></div>
+
+  <script src="dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>
